@@ -1,5 +1,16 @@
 import tkinter as tk
-widown = tk.Tk()
+
+class graph:
+    def __init__():
+        win = tk.Tk()
+        win.title("Calculatrice")
+        fct = tk.Canvas(win,width=500, height=500, bg="white")
+        fct.pack()
+        fct.create_rectangle(50, 50, 150, 150, outline="black", fill="lightblue", width=2)
+        win.mainloop()
+
+
+
 class calcul:
     def __init__(self,a,b):
         self.chif1 = a
@@ -25,3 +36,5 @@ class calcul:
         except ZeroDivisionError:
             print("error")
 
+a = graph
+a.__init__()
