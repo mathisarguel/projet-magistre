@@ -6,6 +6,9 @@ class graph:
         self. g.attendreClick()
 
 
+=======
+from tkit import *
+>>>>>>> Stashed changes
 class bouton:
     def __init__(self,x,y,r):
         self.x = x
