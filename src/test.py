@@ -36,6 +36,7 @@ class calcul:
             self.cpt = self.chif1/self.chif2
         except ZeroDivisionError:
             print("error")
+            print("test")
 
 a = graph
 a.__init__()
