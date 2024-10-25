@@ -1,24 +1,21 @@
-import tkit
+import tkit.py
 class graph:
-    def __init__():
+    def __init__(self):
+        self.g = ouvrirFenetre(600,800)
+        self. g.attendreClick()
 
 
-
-<<<<<<< Updated upstream
 class bouton:
     def __init__(self,x,y,r):
         self.x = x
         self.y = y
         self.r = r
 
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
-=======
+
     def affichage(self):
         self.g.dessinercer
 
->>>>>>> Stashed changes
+
 class calcul:
     def __init__(self,a,b):
         self.chif1 = a
