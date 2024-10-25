@@ -37,6 +37,8 @@ class calcul:
         except ZeroDivisionError:
             print("error")
             print("test")
+    def autrestest(self,"hdhd"):
+        eprioekfjf
 
 a = graph
 a.__init__()
