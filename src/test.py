@@ -10,7 +10,7 @@ class graph:
         win.mainloop()
 
 
-
+ormp'to'
 class calcul:
     def __init__(self,a,b):
         self.chif1 = a
