@@ -1,32 +1,31 @@
-<<<<<<< Updated upstream
-import tkit.py
+from tkit import *
 class graph:
     def __init__(self):
-        self.g = ouvrirFenetre(600,800)
-        self. g.attendreClick()
+        self.g = ouvrirFenetre(400,400)
 
 
-=======
-from tkit import *
->>>>>>> Stashed changes
+    def affichage(self):
+        bouton(350,70,25).affichage(self.g)
+        bouton(350,140,25).affichage(self.g)
+        bouton(350, 210, 25).affichage(self.g)
+        bouton(350, 280, 25).affichage(self.g)
+        bouton(350, 350, 25).affichage(self.g)
+        self.g.attendreClic()
+
+
+
 class bouton:
-    def __init__(self,x,y,r):
+    def __init__(self,x,y,r, signe):
         self.x = x
         self.y = y
         self.r = r
+        self.signe = signe
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
-    def affichage(self):
-        self.g.
+    def affichage(self, graph):
+        graph.dessinerDisque(self.x, self.y, self.r, "orange")
 
 
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 class calcul:
     def __init__(self,a,b):
         self.chif1 = a
@@ -56,5 +55,7 @@ class calcul:
             print("error")
             print("test")
 
-a = bouton(10,10,10)
+
+a = graph()
+
 a.affichage()
