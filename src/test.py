@@ -1,16 +1,15 @@
-import tkinter
-
+import tkit
 class graph:
     def __init__():
-        win = tk.Tk()
-        win.title("Calculatrice")
-        fct = tk.Canvas(win,width=500, height=500, bg="white")
-        fct.pack()
-        fct.create_rectangle(50, 50, 150, 150, outline="black", fill="lightblue", width=2)
-        win.mainloop()
 
 
-ormp'to'
+
+class bouton:
+    def __init__(self,x,y,r):
+        self.x = x
+        self.y = y
+        self.r = r
+
 class calcul:
     def __init__(self,a,b):
         self.chif1 = a
