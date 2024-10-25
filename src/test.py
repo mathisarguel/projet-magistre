@@ -1,21 +1,19 @@
 from tkit import *
+#petite modif pour gagner du temps apres
 
 class graph:
     def __init__(self):
-        self.g = ouvrirFenetre(400,400)
-        self.g.attendreClick()
+        self.g = ouvrirFenetre(400, 400)
+        self.liste = [(350, 70, 25, "×", "fois"), (350, 140, 25, "/", "div"), (350, 210, 25, "+", "plus"),
+                      (350, 280, 25, "-", "mois"), (350, 350, 25, "=", "egal"), (50, 50, 250, 75, "rectangle1"),
+                      (50, 150, 250, 75, "rectangle2"), (50, 250, 250, 75, "rectangle3")]
 
     def affichage(self):
-        bouton(350,70,25,"×").affichage(self.g)
-        bouton(350,140,25,"/").affichage(self.g)
-        bouton(350, 210, 25,"-").affichage(self.g)
-        bouton(350, 280, 25,"+").affichage(self.g)
-        bouton(350, 350, 25,"=").affichage(self.g)
-        rectangle(50,50,250,75).affichage(self.g)
-        rectangle(50, 150, 250, 75).affichage(self.g)
-        rectangle(50, 250, 250, 75).affichage(self.g)
-
-
+        for i in self.liste:
+            if type(i[3])==int:
+                rectangle(i[0], i[1], i[2], i[3]).affichage(self.g)
+            else:
+                bouton(i[0], i[1], i[2], i[3]).affichage(self.g)
         self.g.attendreClic()
 class bouton:
     def __init__(self,x,y,r, signe):
@@ -27,7 +25,6 @@ class bouton:
     def affichage(self, graph):
         graph.dessinerDisque(self.x, self.y, self.r, "orange")
         graph.afficherTexte(self.signe,self.x,self.y, col="black", sizefont=25)
-
 
 class rectangle:
     def __init__(self,x,y,longeur,largeur):
