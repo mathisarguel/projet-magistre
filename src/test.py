@@ -1,8 +1,9 @@
 from tkit import *
+
 class graph:
     def __init__(self):
         self.g = ouvrirFenetre(400,400)
-
+        self.g.attendreClick()
 
     def affichage(self):
         bouton(350,70,25,"×").affichage(self.g)
@@ -16,9 +17,6 @@ class graph:
 
 
         self.g.attendreClic()
-
-
-
 class bouton:
     def __init__(self,x,y,r, signe):
         self.x = x
@@ -41,8 +39,6 @@ class rectangle:
     def affichage(self, graph):
         graph.dessinerRectangle(self.x,self.y, self.longeur,self.largeur,"grey")
 
-
-
 class calcul:
     def __init__(self,a,b):
         self.chif1 = a
@@ -50,9 +46,16 @@ class calcul:
         cpt = 0
 
     def run(self):
-        self.chif1 = int(input("premier chiffre"))
-        self.chif2 = int(input("deuxieme chiffre"))
-
+        try:
+            self.chif1 = int(input("premier chiffre"))
+        except :
+            while type(self.chif1) != int:
+                self.chif1 = int(inpuut("Rentrer un chiffre"))
+        try:
+            self.chif2 = int(input("deuxieme chiffre"))
+        except:
+            while type(self.chif2) != int:
+                self.chif2 = int(inpuut("Rentrer un chiffre"))
 
 
     def plus(self):
@@ -76,3 +79,4 @@ class calcul:
 a = graph()
 
 a.affichage()
+
