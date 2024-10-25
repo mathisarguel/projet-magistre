@@ -3,7 +3,6 @@ from tkit import *
 class graph:
     def __init__(self):
         self.g = ouvrirFenetre(400,400)
-        self.g.attendreClick()
 
     def affichage(self):
         bouton(350,70,25,"×").affichage(self.g)
@@ -14,8 +13,6 @@ class graph:
         rectangle(50,50,250,75).affichage(self.g)
         rectangle(50, 150, 250, 75).affichage(self.g)
         rectangle(50, 250, 250, 75).affichage(self.g)
-
-
         self.g.attendreClic()
 
 class bouton:
