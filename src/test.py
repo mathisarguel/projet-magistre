@@ -134,6 +134,5 @@ class calcul:
 
 
 a = graph()
-
 c = calculatrice(graph=a)
 c.mode()
