@@ -4,12 +4,15 @@ class graph:
 
 
 
+<<<<<<< Updated upstream
 class bouton:
     def __init__(self,x,y,r):
         self.x = x
         self.y = y
         self.r = r
 
+=======
+>>>>>>> Stashed changes
 class calcul:
     def __init__(self,a,b):
         self.chif1 = a
@@ -19,6 +22,8 @@ class calcul:
     def run(self):
         self.chif1 = int(input("premier chiffre"))
         self.chif2 = int(input("deuxieme chiffre"))
+    def
+
 
     def plus(self):
         self.cpt = self.chif1  + self.chif2
@@ -36,8 +41,6 @@ class calcul:
         except ZeroDivisionError:
             print("error")
             print("test")
-    def autrestest(self,"hdhd"):
-        eprioekfjf
 
 a = graph
 a.__init__()
