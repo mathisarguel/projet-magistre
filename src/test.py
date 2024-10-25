@@ -11,7 +11,13 @@ class bouton:
         self.y = y
         self.r = r
 
+<<<<<<< Updated upstream
 =======
+>>>>>>> Stashed changes
+=======
+    def affichage(self):
+        self.g.dessinercer
+
 >>>>>>> Stashed changes
 class calcul:
     def __init__(self,a,b):
