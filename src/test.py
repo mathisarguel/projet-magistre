@@ -1,4 +1,4 @@
-import tkinter as tk
+import tkinter
 
 class graph:
     def __init__():
