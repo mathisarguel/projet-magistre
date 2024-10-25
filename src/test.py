@@ -1,4 +1,5 @@
 from tkit import *
+#petite modif pour gagner du temps apres
 
 class graph:
     def __init__(self):
@@ -25,17 +26,30 @@ class bouton:
     def affichage(self, graph):
         graph.dessinerDisque(self.x, self.y, self.r, "orange")
         graph.afficherTexte(self.signe,self.x,self.y, col="black", sizefont=25)
+        self.g = ouvrirFenetre(400, 400)
+        self.liste = [(350, 70, 25, "×", "fois"), (350, 140, 25, "/", "div"), (350, 210, 25, "+", "plus"),
+                      (350, 280, 25, "-", "moins"), (350, 350, 25, "=", "egal"), (50, 50, 250, 75, "rectangle1"),
+                      (50, 150, 250, 75, "rectangle2"), (50, 250, 250, 75, "rectangle3")]
 
+    def affichage(self):
+        for i in self.liste:
+            if type(i[3]) == int:
+                self.g.dessinerRectangle(i[0], i[1], i[2], i[3], "grey")
+            else:
+                self.g.dessinerDisque(i[0], i[1], i[2], "orange")
+                self.g.afficherTexte(i[3], i[0], i[1], col="black", sizefont=25)
 
-class rectangle:
-    def __init__(self,x,y,longeur,largeur):
-        self.x = x
-        self.y = y
-        self.longeur = longeur
-        self.largeur = largeur
+    def recup_clic(self):
+        clic = self.g.attendreClic()
+        print(clic)
+        for i in self.liste:
+            if type(i[3]) == int:
+                if i[0] + i[2] >= clic.x >= i[0] and i[1] + i[3] >= clic.y >= i[1]:
+                    return i[4]
+            else:
+                if (i[0] + i[2]) >= clic.x >= (i[0] - i[2]) and (i[1] + i[2]) >= clic.y >= (i[1] - i[2]):
+                    return i[4]
 
-    def affichage(self, graph):
-        graph.dessinerRectangle(self.x,self.y, self.longeur,self.largeur,"grey")
 
 class calcul:
     def __init__(self,a,b):
@@ -78,4 +92,4 @@ class calcul:
 a = graph()
 
 a.affichage()
-
+print(a.recup_clic())
