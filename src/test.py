@@ -1,32 +1,18 @@
-<<<<<<< Updated upstream
-import tkit.py
+from tkit import *
+
 class graph:
     def __init__(self):
-        self.g = ouvrirFenetre(600,800)
-        self. g.attendreClick()
+        self.g = ouvrirFenetre(400,400)
+        self.g.attendreClick()
 
 
-=======
-from tkit import *
->>>>>>> Stashed changes
 class bouton:
     def __init__(self,x,y,r):
         self.x = x
         self.y = y
         self.r = r
 
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
-    def affichage(self):
-        self.g.
-
-
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 class calcul:
     def __init__(self,a,b):
         self.chif1 = a
@@ -34,9 +20,16 @@ class calcul:
         cpt = 0
 
     def run(self):
-        self.chif1 = int(input("premier chiffre"))
-        self.chif2 = int(input("deuxieme chiffre"))
-
+        try:
+            self.chif1 = int(input("premier chiffre"))
+        except :
+            while type(self.chif1) != int:
+                self.chif1 = int(inpuut("Rentrer un chiffre"))
+        try:
+            self.chif2 = int(input("deuxieme chiffre"))
+        except:
+            while type(self.chif2) != int:
+                self.chif2 = int(inpuut("Rentrer un chiffre"))
 
 
     def plus(self):
@@ -56,5 +49,3 @@ class calcul:
             print("error")
             print("test")
 
-a = bouton(10,10,10)
-a.affichage()
