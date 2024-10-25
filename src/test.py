@@ -10,32 +10,15 @@ class graph:
 
     def affichage(self):
         for i in self.liste:
-            if type(i[3])==int:
-                rectangle(i[0], i[1], i[2], i[3]).affichage(self.g)
+            if type(i[3]) == int:
+                self.g.dessinerRectangle(i[0], i[1], i[2], i[3], "grey")
             else:
-                bouton(i[0], i[1], i[2], i[3]).affichage(self.g)
+                self.g.dessinerDisque(i[0], i[1], i[2], "orange")
+                self.g.afficherTexte(i[3], i[0], i[1], col="black", sizefont=25)
+
         self.g.attendreClic()
 
-class bouton:
-    def __init__(self,x,y,r, signe):
-        self.x = x
-        self.y = y
-        self.r = r
-        self.signe = signe
 
-    def affichage(self, graph):
-        graph.dessinerDisque(self.x, self.y, self.r, "orange")
-        graph.afficherTexte(self.signe,self.x,self.y, col="black", sizefont=25)
-
-class rectangle:
-    def __init__(self,x,y,longeur,largeur):
-        self.x = x
-        self.y = y
-        self.longeur = longeur
-        self.largeur = largeur
-
-    def affichage(self, graph):
-        graph.dessinerRectangle(self.x,self.y, self.longeur,self.largeur,"grey")
 
 class calcul:
     def __init__(self,a,b):
