@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import tkit.py
 class graph:
     def __init__(self):
@@ -11,11 +12,18 @@ class bouton:
         self.y = y
         self.r = r
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     def affichage(self):
-        self.g.dessinercer
+        self.g.
 
 
+<<<<<<< Updated upstream
+
+=======
+>>>>>>> Stashed changes
 class calcul:
     def __init__(self,a,b):
         self.chif1 = a
@@ -25,7 +33,7 @@ class calcul:
     def run(self):
         self.chif1 = int(input("premier chiffre"))
         self.chif2 = int(input("deuxieme chiffre"))
-    def
+
 
 
     def plus(self):
@@ -45,5 +53,5 @@ class calcul:
             print("error")
             print("test")
 
-a = graph
-a.__init__()
+a = bouton(10,10,10)
+a.affichage()
