@@ -15,6 +15,7 @@ class graph:
             else:
                 bouton(i[0], i[1], i[2], i[3]).affichage(self.g)
         self.g.attendreClic()
+
 class bouton:
     def __init__(self,x,y,r, signe):
         self.x = x
@@ -71,6 +72,7 @@ class calcul:
         except ZeroDivisionError:
             print("error")
             print("test")
+
 
 
 a = graph()
