@@ -23,6 +23,7 @@ class calcul:
 
     def plus(self):
         self.cpt = self.chif1  + self.chif2
+        print(self.cpt)
 
     def moins(self):
         self.cpt = self.chif1 - self.chif2
