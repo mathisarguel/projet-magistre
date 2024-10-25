@@ -5,13 +5,22 @@ class graph:
         self.g = ouvrirFenetre(400,400)
         self.g.attendreClick()
 
-
+    def affichage(self):
+        bouton(350,70,25).affichage(self.g)
+        bouton(350,140,25).affichage(self.g)
+        bouton(350, 210, 25).affichage(self.g)
+        bouton(350, 280, 25).affichage(self.g)
+        bouton(350, 350, 25).affichage(self.g)
+        self.g.attendreClic()
 class bouton:
-    def __init__(self,x,y,r):
+    def __init__(self,x,y,r, signe):
         self.x = x
         self.y = y
         self.r = r
+        self.signe = signe
 
+    def affichage(self, graph):
+        graph.dessinerDisque(self.x, self.y, self.r, "orange")
 
 class calcul:
     def __init__(self,a,b):
@@ -48,4 +57,9 @@ class calcul:
         except ZeroDivisionError:
             print("error")
             print("test")
+
+
+a = graph()
+
+a.affichage()
 
