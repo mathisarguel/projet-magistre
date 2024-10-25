@@ -5,7 +5,7 @@ class graph:
     def __init__(self):
         self.g = ouvrirFenetre(400, 400)
         self.liste = [(350, 70, 25, "×", "fois"), (350, 140, 25, "/", "div"), (350, 210, 25, "+", "plus"),
-                      (350, 280, 25, "-", "mois"), (350, 350, 25, "=", "egal"), (50, 50, 250, 75, "rectangle1"),
+                      (350, 280, 25, "-", "moins"), (350, 350, 25, "=", "egal"), (50, 50, 250, 75, "rectangle1"),
                       (50, 150, 250, 75, "rectangle2"), (50, 250, 250, 75, "rectangle3")]
 
     def affichage(self):
@@ -16,7 +16,18 @@ class graph:
                 self.g.dessinerDisque(i[0], i[1], i[2], "orange")
                 self.g.afficherTexte(i[3], i[0], i[1], col="black", sizefont=25)
 
-        self.g.attendreClic()
+    def recup_clic(self):
+        clic = self.g.attendreClic()
+        print(clic)
+        for i in self.liste:
+            if type(i[3]) == int:
+                if i[0] + i[2] >= clic.x >= i[0] and i[1] + i[3] >= clic.y >= i[1]:
+                    return i[4]
+            else:
+                if (i[0] + i[2]) >= clic.x >= (i[0] - i[2]) and (i[1] + i[2]) >= clic.y >= (i[1] - i[2]):
+                    return i[4]
+
+
 
 
 
@@ -61,4 +72,4 @@ class calcul:
 a = graph()
 
 a.affichage()
-
+print(a.recup_clic())
