@@ -83,18 +83,6 @@ class calcul:
         self.chif2 = b
         cpt = 0
 
-    def run(self):
-        try:
-            self.chif1 = int(input("premier chiffre"))
-        except :
-            while type(self.chif1) != int:
-                self.chif1 = int(inpuut("Rentrer un chiffre"))
-        try:
-            self.chif2 = int(input("deuxieme chiffre"))
-        except:
-            while type(self.chif2) != int:
-                self.chif2 = int(inpuut("Rentrer un chiffre"))
-=======
 
 
     def mode(self):
@@ -104,7 +92,7 @@ class calcul:
         self.signe = self.graph.recup_clic()
         self.b = int(self.graph.recp_valeur("rectangle2"))
         self.graph.modif_texte("rectangle3",self.dico(self.signe))
->>>>>>> Stashed changes
+
 
     def dico(self, a):
         if a == "plus":
