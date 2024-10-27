@@ -6,11 +6,12 @@ class graph:
         self.g = ouvrirFenetre(400,400)
 
     def affichage(self):
-        bouton(350,70,25,"×").affichage(self.g)
-        bouton(350,140,25,"/").affichage(self.g)
-        bouton(350, 210, 25,"-").affichage(self.g)
-        bouton(350, 280, 25,"+").affichage(self.g)
-        bouton(350, 350, 25,"=").affichage(self.g)
+        bouton(350, 50, 25,"×").affichage(self.g)
+        bouton(350, 110, 25,"/").affichage(self.g)
+        bouton(350, 230, 25,"-").affichage(self.g)
+        bouton(350, 170, 25,"+").affichage(self.g)
+        bouton(350, 290, 25,"=").affichage(self.g)
+        bouton(350, 350, 25, "AC").affichage(self.g)
         rectangle(50,50,250,75).affichage(self.g)
         rectangle(50, 150, 250, 75).affichage(self.g)
         rectangle(50, 250, 250, 75).affichage(self.g)
@@ -27,8 +28,9 @@ class bouton:
         graph.dessinerDisque(self.x, self.y, self.r, "orange")
         graph.afficherTexte(self.signe,self.x,self.y, col="black", sizefont=25)
         self.g = ouvrirFenetre(400, 400)
-        self.liste = [(350, 70, 25, "×", "fois"), (350, 140, 25, "/", "div"), (350, 210, 25, "+", "plus"),
-                      (350, 280, 25, "-", "moins"), (350, 350, 25, "=", "egal"), (50, 50, 250, 75, "rectangle1"),
+        self.liste = [(350, 50, 25, "×", "fois"), (350, 110, 25, "/", "div"), (350, 170, 25, "+", "plus"),
+                      (350, 230, 25, "-", "moins"), (350, 290, 25, "=", "egal"), (350, 350, 25, "AC", "AC"),
+                      (50, 50, 250, 75, "rectangle1"),
                       (50, 150, 250, 75, "rectangle2"), (50, 250, 250, 75, "rectangle3")]
         self.dico = {}
     def affichage(self):
@@ -86,11 +88,26 @@ class calcul:
 
     def mode(self):
         self.graph.affichage()
-
-        self.a = int(self.graph.recp_valeur("rectangle1"))
-        self.signe = self.graph.recup_clic()
-        self.b = int(self.graph.recp_valeur("rectangle2"))
-        self.graph.modif_texte("rectangle3",self.dico(self.signe))
+        a = False
+        b = False
+        c = False
+        while a == False or b == False or c == False:
+            if a == False:
+                self.a = int(self.graph.recp_valeur("rectangle1"))
+            if b == False:
+                self.b = int(self.graph.recp_valeur("rectangle2"))
+                b = True
+            if c == False:
+                self.signe = self.graph.recup_clic()
+                if self.signe == "AC":
+                    a = False
+                    b = False
+                    c = False
+                    self.graph.modif_texte("rectangle1", "")
+                    self.graph.modif_texte("rectangle2", "")
+                else:
+                    c = True
+            self.graph.modif_texte("rectangle3", self.dico(self.signe))
 
 
     def dico(self, a):
@@ -102,6 +119,8 @@ class calcul:
             return self.fois()
         elif a == "div":
             return self.div()
+        elif a =="AC":
+            return self.Ac()
 
     def plus(self):
         return self.a + self.b
@@ -118,6 +137,12 @@ class calcul:
         except ZeroDivisionError:
             print("error")
             print("test")
+
+    def Ac(self):
+        self.graph.modif_texte("rectangle1", "")
+        self.graph.modif_texte("rectangle2", "")
+        self.a = 0
+        self.b = 0
 
 
 a = graph()
