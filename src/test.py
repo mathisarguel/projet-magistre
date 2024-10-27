@@ -60,7 +60,7 @@ class calculatrice:
         clic = self.graph.recup_clic()
         if clic == "rectangle1" :
             self.a = int(self.graph.recp_valeur("rectangle1"))
-        elif clic == "rectangle2" :
+        elif clic == "rectangle2":
             self.b = int(self.graph.recp_valeur("rectangle2"))
         elif clic == "AC":
             self.graph.modif_texte("rectangle2","")
