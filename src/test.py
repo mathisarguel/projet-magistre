@@ -1,6 +1,4 @@
 from tkit import *
-#petite modif pour gagner du temps apres
-
 class graph:
     def __init__(self):
         self.g = ouvrirFenetre(400, 400)
@@ -41,20 +39,15 @@ class graph:
             touche = self.g.attendreTouche()
         nbr = "".join(liste)
         return nbr
-
-
     def modif_texte(self, obj, texte):
         self.g.changerTexte(self.dico[obj], texte)
         self.g.actualiser()
-
-
 class calculatrice:
     def __init__(self,graph, a = 0, b = 0, signe = ""):
         self.a = a
         self.b = b
         self.signe = signe
         self.graph = graph
-
 
     def mode(self):
         clic = self.graph.recup_clic()
@@ -72,15 +65,9 @@ class calculatrice:
         if clic != "AC" and self.a != 0 and self.b != 0:
             self.graph.modif_texte("rectangle3", self.dico(self.signe))
         self.mode()
-
-
-
-
     def lancement(self):
         self.graph.affichage()
         self.mode()
-
-
     def dico(self, a):
         if a == "plus":
             return self.plus()
@@ -90,31 +77,18 @@ class calculatrice:
             return self.fois()
         elif a == "div":
             return self.div()
-        elif a =="AC":
-            return self.Ac()
-
     def plus(self):
         return self.a + self.b
-
     def moins(self):
         return self.a - self.b
-
     def fois(self):
         return self.a * self.b
-
     def div(self):
         try:
-            return self.a / self.b
+            return round(self.a / self.b,4)
         except ZeroDivisionError:
             print("error")
             print("test")
-
-    def Ac(self):
-        self.graph.modif_texte("rectangle1", "")
-        self.graph.modif_texte("rectangle2", "")
-        self.a = 0
-        self.b = 0
-
 
 a = graph()
 c = calculatrice(graph=a)
