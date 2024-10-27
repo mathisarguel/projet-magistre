@@ -76,7 +76,6 @@ class calculatrice:
         self.signe = signe
         self.graph = graph
 
-<<<<<<< Updated upstream
 class calcul:
     def __init__(self,a,b):
         self.chif1 = a
