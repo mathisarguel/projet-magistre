@@ -1,4 +1,8 @@
 from tkit import *
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 class graph:
     def __init__(self):
         self.g = ouvrirFenetre(400, 400)
@@ -39,16 +43,27 @@ class graph:
             touche = self.g.attendreTouche()
         nbr = "".join(liste)
         return nbr
+<<<<<<< Updated upstream
     def modif_texte(self, obj, texte):
         self.g.changerTexte(self.dico[obj], texte)
         self.g.actualiser()
+=======
+
+    def modif_texte(self, obj, texte):
+        self.g.changerTexte(self.dico[obj], texte)
+        self.g.actualiser()
+
+>>>>>>> Stashed changes
 class calculatrice:
     def __init__(self,graph, a = 0, b = 0, signe = ""):
         self.a = a
         self.b = b
         self.signe = signe
         self.graph = graph
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     def mode(self):
         clic = self.graph.recup_clic()
         if clic == "rectangle1" :
