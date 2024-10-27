@@ -5,7 +5,7 @@ class graph:
     def __init__(self):
         self.g = ouvrirFenetre(400, 400)
         self.liste = [(350, 50, 25, "×", "fois"), (350, 110, 25, "/", "div"), (350, 170, 25, "+", "plus"),
-                      (350, 230, 25, "-", "moins"), (350, 290, 25, "=", "egal"), (350, 350, 25, "AC", "AC"),
+                      (350, 230, 25, "-", "moins"), (350, 350, 25, "AC", "AC"),
                       (50, 50, 250, 75, "rectangle1"),
                       (50, 150, 250, 75, "rectangle2"), (50, 250, 250, 75, "rectangle3")]
         self.dico = {}
@@ -45,7 +45,7 @@ class graph:
 
     def modif_texte(self, obj, texte):
         self.g.changerTexte(self.dico[obj], texte)
-        self.g.attendreClic()
+        self.g.actualiser()
 
 
 class calculatrice:
@@ -57,27 +57,28 @@ class calculatrice:
 
 
     def mode(self):
-        self.graph.affichage()
-        a = False
-        b = False
-        c = False
-        while a == False or b == False or c == False:
-            if a == False:
-                self.a = int(self.graph.recp_valeur("rectangle1"))
-            if b == False:
-                self.b = int(self.graph.recp_valeur("rectangle2"))
-                b = True
-            if c == False:
-                self.signe = self.graph.recup_clic()
-                if self.signe == "AC":
-                    a = False
-                    b = False
-                    c = False
-                    self.graph.modif_texte("rectangle1", "")
-                    self.graph.modif_texte("rectangle2", "")
-                else:
-                    c = True
+        clic = self.graph.recup_clic()
+        if clic == "rectangle1" :
+            self.a = int(self.graph.recp_valeur("rectangle1"))
+        elif clic == "rectangle2" :
+            self.b = int(self.graph.recp_valeur("rectangle2"))
+        elif clic == "AC":
+            self.graph.modif_texte("rectangle2","")
+            self.graph.modif_texte("rectangle1","")
+            self.a, self.b = 0, 0
+            self.graph.modif_texte("rectangle3", "")
+        elif clic != "rectangle3":
+            self.signe = clic
+        if clic != "AC" and self.a != 0 and self.b != 0:
             self.graph.modif_texte("rectangle3", self.dico(self.signe))
+        self.mode()
+
+
+
+
+    def lancement(self):
+        self.graph.affichage()
+        self.mode()
 
 
     def dico(self, a):
@@ -95,7 +96,8 @@ class calculatrice:
     def plus(self):
         return self.a + self.b
 
-    def moins(self):eazez
+    def moins(self):
+
         return self.a - self.b
 
     def fois(self):
@@ -117,4 +119,4 @@ class calculatrice:
 
 a = graph()
 c = calculatrice(graph=a)
-c.mode()
+c.lancement()
