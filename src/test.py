@@ -95,7 +95,7 @@ class calculatrice:
     def plus(self):
         return self.a + self.b
 
-    def moins(self):
+    def moins(self):eazez
         return self.a - self.b
 
     def fois(self):
