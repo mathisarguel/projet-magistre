@@ -3,36 +3,13 @@ from tkit import *
 
 class graph:
     def __init__(self):
-        self.g = ouvrirFenetre(400,400)
-
-    def affichage(self):
-        bouton(350, 50, 25,"×").affichage(self.g)
-        bouton(350, 110, 25,"/").affichage(self.g)
-        bouton(350, 230, 25,"-").affichage(self.g)
-        bouton(350, 170, 25,"+").affichage(self.g)
-        bouton(350, 290, 25,"=").affichage(self.g)
-        bouton(350, 350, 25, "AC").affichage(self.g)
-        rectangle(50,50,250,75).affichage(self.g)
-        rectangle(50, 150, 250, 75).affichage(self.g)
-        rectangle(50, 250, 250, 75).affichage(self.g)
-        self.g.attendreClic()
-
-class bouton:
-    def __init__(self,x,y,r, signe):
-        self.x = x
-        self.y = y
-        self.r = r
-        self.signe = signe
-
-    def affichage(self, graph):
-        graph.dessinerDisque(self.x, self.y, self.r, "orange")
-        graph.afficherTexte(self.signe,self.x,self.y, col="black", sizefont=25)
         self.g = ouvrirFenetre(400, 400)
         self.liste = [(350, 50, 25, "×", "fois"), (350, 110, 25, "/", "div"), (350, 170, 25, "+", "plus"),
                       (350, 230, 25, "-", "moins"), (350, 290, 25, "=", "egal"), (350, 350, 25, "AC", "AC"),
                       (50, 50, 250, 75, "rectangle1"),
                       (50, 150, 250, 75, "rectangle2"), (50, 250, 250, 75, "rectangle3")]
         self.dico = {}
+
     def affichage(self):
         for i in self.liste:
             if type(i[3]) == int:
@@ -77,13 +54,6 @@ class calculatrice:
         self.b = b
         self.signe = signe
         self.graph = graph
-
-class calcul:
-    def __init__(self,a,b):
-        self.chif1 = a
-        self.chif2 = b
-        cpt = 0
-
 
 
     def mode(self):
