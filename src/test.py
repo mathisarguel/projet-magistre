@@ -97,7 +97,10 @@ class calculatrice:
         return self.a + self.b
 
     def moins(self):
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         return self.a - self.b
 
     def fois(self):
