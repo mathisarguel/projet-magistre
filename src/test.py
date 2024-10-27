@@ -4,8 +4,8 @@ from tkit import *
 class graph:
     def __init__(self):
         self.g = ouvrirFenetre(400, 400)
-        self.liste = [(350, 50, 25, "×", "fois"), (350, 110, 25, "/", "div"), (350, 170, 25, "+", "plus"),
-                      (350, 230, 25, "-", "moins"), (350, 350, 25, "AC", "AC"),
+        self.liste = [(350, 70, 25, "×", "fois"), (350, 140, 25, "/", "div"), (350, 210, 25, "+", "plus"),
+                      (350, 280, 25, "-", "moins"), (350, 350, 25, "AC", "AC"),
                       (50, 50, 250, 75, "rectangle1"),
                       (50, 150, 250, 75, "rectangle2"), (50, 250, 250, 75, "rectangle3")]
         self.dico = {}
@@ -97,7 +97,6 @@ class calculatrice:
         return self.a + self.b
 
     def moins(self):
-
         return self.a - self.b
 
     def fois(self):
