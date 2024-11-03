@@ -35,7 +35,7 @@ class graph:
         touche = self.g.attendreTouche()
         while touche != "Return":
             print(touche)
-            if touche.isdigit() or (touche == "period" and liste[-1] != "." ):
+            if touche.isdigit() or (touche == "period" and self.verifPoint(liste) is True):
                 if touche == "period":
                     liste.append(".")
                 else:
@@ -45,6 +45,12 @@ class graph:
             touche = self.g.attendreTouche()
         nbr = "".join(liste)
         return nbr
+
+    def verifPoint(self,liste):
+        for i in liste:
+            if i == ".":
+                return False
+        return True
     def modif_texte(self, obj, texte):
         self.g.changerTexte(self.dico[obj], texte)
         self.g.actualiser()
