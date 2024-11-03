@@ -35,7 +35,7 @@ class graph:
         touche = self.g.attendreTouche()
         while touche != "Return":
             print(touche)
-            if touche.isdigit() or touche == "period":
+            if touche.isdigit() or (touche == "period" and liste[-1] != "." ):
                 if touche == "period":
                     liste.append(".")
                 else:
