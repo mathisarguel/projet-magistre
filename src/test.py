@@ -1,8 +1,4 @@
 from tkit import *
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 class graph:
     def __init__(self):
         self.g = ouvrirFenetre(400, 400)
@@ -34,42 +30,39 @@ class graph:
 
     def recp_valeur(self, rectangle):
         liste = []
+        print("bb")
+        self.g.attendreTouche()
         touche = self.g.attendreTouche()
         while touche != "Return":
-            if touche.isdigit():
-                liste.append(touche)
+            print(touche)
+            if touche.isdigit() or touche == "period":
+                if touche == "period":
+                    liste.append(".")
+                else:
+                    liste.append(touche)
                 nbr = "".join(liste)
                 self.g.changerTexte(self.dico[rectangle],nbr)
             touche = self.g.attendreTouche()
         nbr = "".join(liste)
         return nbr
-<<<<<<< Updated upstream
     def modif_texte(self, obj, texte):
         self.g.changerTexte(self.dico[obj], texte)
         self.g.actualiser()
-=======
-
     def modif_texte(self, obj, texte):
         self.g.changerTexte(self.dico[obj], texte)
         self.g.actualiser()
-
->>>>>>> Stashed changes
 class calculatrice:
     def __init__(self,graph, a = 0, b = 0, signe = ""):
         self.a = a
         self.b = b
         self.signe = signe
         self.graph = graph
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
     def mode(self):
         clic = self.graph.recup_clic()
         if clic == "rectangle1" :
-            self.a = int(self.graph.recp_valeur("rectangle1"))
+            self.a = float(self.graph.recp_valeur("rectangle1"))
         elif clic == "rectangle2":
-            self.b = int(self.graph.recp_valeur("rectangle2"))
+            self.b = float(self.graph.recp_valeur("rectangle2"))
         elif clic == "AC":
             self.graph.modif_texte("rectangle2","")
             self.graph.modif_texte("rectangle1","")
