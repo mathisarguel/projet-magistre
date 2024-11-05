@@ -2,6 +2,7 @@ from tkit import *
 class graph:
     def __init__(self):
         self.g = ouvrirFenetre(400, 400)
+        self.g.afficherTexte("Sélectionnez le rectangle, entrez les valeurs et appuyez sur Entrée pour valider",200,20,col = "orange", sizefont=10)
         self.liste = [(350, 70, 25, "×", "fois"), (350, 140, 25, "/", "div"), (350, 210, 25, "+", "plus"),
                       (350, 280, 25, "-", "moins"), (350, 350, 25, "AC", "AC"),
                       (50, 50, 250, 75, "rectangle1"),
@@ -31,7 +32,6 @@ class graph:
     def recp_valeur(self, rectangle):
         liste = []
         print("bb")
-        self.g.attendreTouche()
         touche = self.g.attendreTouche()
         while touche != "Return":
             print(touche)
@@ -43,7 +43,13 @@ class graph:
                 nbr = "".join(liste)
                 self.g.changerTexte(self.dico[rectangle],nbr)
             touche = self.g.attendreTouche()
-        nbr = "".join(liste)
+
+        if len(liste) == 0:
+            nbr = 0
+            self.g.changerTexte(self.dico[rectangle], "0")
+        else:
+            nbr = "".join(liste)
+
         return nbr
 
     def verifPoint(self,liste):
@@ -58,7 +64,7 @@ class graph:
         self.g.changerTexte(self.dico[obj], texte)
         self.g.actualiser()
 class calculatrice:
-    def __init__(self,graph, a = 0, b = 0, signe = ""):
+    def __init__(self,graph, a = -1, b = -1, signe = ""):
         self.a = a
         self.b = b
         self.signe = signe
@@ -72,11 +78,11 @@ class calculatrice:
         elif clic == "AC":
             self.graph.modif_texte("rectangle2","")
             self.graph.modif_texte("rectangle1","")
-            self.a, self.b = 0, 0
+            self.a, self.b = -1, -1
             self.graph.modif_texte("rectangle3", "")
         elif clic != "rectangle3":
             self.signe = clic
-        if clic != "AC" and self.a != 0 and self.b != 0:
+        if clic != "AC" and self.a != -1 and self.b != -1:
             self.graph.modif_texte("rectangle3", self.dico(self.signe))
         self.mode()
     def lancement(self):
