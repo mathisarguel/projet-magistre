@@ -90,25 +90,27 @@ class calculatrice:
         self.mode()
     def dico(self, a):
         if a == "plus":
-            return self.plus()
+            return self.a + self.b
         elif a == "moins":
-            return self.moins()
+            return self.a - self.b
         elif a == "fois":
-            return self.fois()
+            return self.a * self.b
         elif a == "div":
             return self.div()
+<<<<<<< HEAD
     def plus(self):
         return round(self.a + self.b,4)
     def moins(self):
         return round(self.a - self.b,4)
     def fois(self):
         return self.a * self.b
+=======
+>>>>>>> e284e54dc0660777ff7aee143c1b82643b187253
     def div(self):
         try:
             return round(self.a / self.b,4)
         except ZeroDivisionError:
             print("error")
-            print("test")
 
 a = graph()
 c = calculatrice(graph=a)
