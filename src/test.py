@@ -31,6 +31,7 @@ class graph:
 
     def recp_valeur(self, rectangle):
         liste = []
+        self.g.attendreTouche()
         touche = self.g.attendreTouche()
         while touche != "Return":
             print(touche)
@@ -97,9 +98,9 @@ class calculatrice:
         elif a == "div":
             return self.div()
     def plus(self):
-        return self.a + self.b
+        return round(self.a + self.b,4)
     def moins(self):
-        return self.a - self.b
+        return round(self.a - self.b,4)
     def fois(self):
         return self.a * self.b
     def div(self):
