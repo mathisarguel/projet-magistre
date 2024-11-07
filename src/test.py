@@ -31,6 +31,7 @@ class graph:
 
     def recp_valeur(self, rectangle):
         liste = []
+        self.g.attendreTouche()
         touche = self.g.attendreTouche()
         while touche != "Return":
             print(touche)
